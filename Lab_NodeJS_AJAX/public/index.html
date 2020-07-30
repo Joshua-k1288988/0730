@@ -126,13 +126,19 @@
 
 
             $("#getButton").on("click", function() {
-                var s = $("#nameTextBox").val();
+                // var s = $("#nameTextBox").val();
+                var who = $("#nameTextBox").prop("value");
+                var   url = "/hello/" + who;
+                $.get(url , function(dataFromServer){
+                    $("#reportSpan").text(dataFromServer);
+
+                })
 
 
 
 
 
-                $("#reportSpan").text(s);
+                // $("#reportSpan").text(s);
             })
 
 
@@ -143,10 +149,21 @@
                     lastName: $("#lastNameTextBox").val()
                 }
 
+                $.ajax({
+                    type:"post", //post,get,put,deleeete
+                    url : "/test",
+                    contentType: "application/json",
+                    data : JSON.stringify(dataToServer)
+                }).then(function(dataFromServer){
+                    $("#resultSpan").text(dataFromServer);
+                })
+                // $.post("/test",dataToServer ,function (e){
+                //     $("#resultSpan").text(e);
+                // })
 
 
 
-                $("#resultSpan").text(JSON.stringify(dataToServer));
+                //$("#resultSpan").text(JSON.stringify(dataToServer));
             })
 
 
