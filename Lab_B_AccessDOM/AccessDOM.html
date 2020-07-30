@@ -7,13 +7,20 @@
         $(document).ready(function () {
             $("#btnTry").click(function () {
                 // 在這裏寫程式
-                
+                //$("#report").text("line1<br>Line2");
+                // $("#report").html("line1<br>Line2");
+                // $("#report").append("line1<br>Line2");
+                // var s = $("#report").text();
+				        // alert(s);
 
+                // var s = $("#aTextField").attr("value");
+                // $("#report").append(s);
+                // var s = $("#aTextField").attr("value", "Hello!");
+				        // // 一樣是 $.attr(), 250 與 260 差別在哪?
+                 var s = $("input[name='radioGroup']").eq(2).prop("checked", "checked");
+                 $("#report").append("radio "+"c"+" selected.");
 
-                
-
-                
-                
+				
                 
             })
         });
@@ -28,7 +35,7 @@
 
 <form action="" method="put" onsubmit="return false;">
   <div>
-    <label>Text:</label> <input type="text" id="aTextField" name="someTextField"/>
+    <label>Text:</label> <input type="text" value="123444" id="aTextField" name="someTextField"/>
   </div>
   <div>
     <label>Radio group:</label>
